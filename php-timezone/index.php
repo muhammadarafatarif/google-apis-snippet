@@ -8,7 +8,8 @@ require_once ('src/GoogleMapsTimeZone.php');
 define('API_KEY', 'YOUR_API_KEY');
 
 // Initialize GoogleMapsTimeZone object (New York City coordinates)
-$timezone_object = new GoogleMapsTimeZone(59.9139, 10.7522, 0, GoogleMapsTimeZone::FORMAT_JSON);
+$t = time();
+$timezone_object = new GoogleMapsTimeZone(59.9139, 10.7522, $t, GoogleMapsTimeZone::FORMAT_JSON);
 
 // Set Google API key
 $timezone_object->setApiKey(API_KEY);
