@@ -2,7 +2,7 @@
 require_once ('src/GoogleMapsTimeZone.php');
 
 /**
- * All queries require an API key from Google
+ * All queries require an API key from Google (with IP restrictions must)
  * @link https://developers.google.com/maps/documentation/timezone/get-api-key
  * */
 define('API_KEY', 'YOUR_API_KEY');
