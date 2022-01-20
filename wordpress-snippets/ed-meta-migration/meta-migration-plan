@@ -1,0 +1,25 @@
+------------
+Basic Start:
+------------
+
+Make backup of full DB & install it in secondary db
+Make postmeta duplicate table
+Delete empty and null values from duplicated postmeta table
+Export all meta data of post type one by one. query in file "1-meta-export-query"
+Rename all exported files with repect tot heir post types.
+Rename table names in all queries in all exported files with respect to their relevent table names
+Create all postmeta tables with respect to all post types
+Upload all files to servers home directory and using putty import all SQL file into thier relevant tables.
+Re-index 'meta_id' column of all table using query in file "2-reindex-primary-column"
+Alter that table to make auto incremented index number perfect in operations tab.
+
+
+------------------------
+Convert Repeater Fields:
+------------------------
+
+All repeater fields information exist in file named "4-repeater-meta-fields-groups"
+Run conversion query on all repeater group one by one "3-repeater-conversion-query".
+Get all repeater fields data and store it with new meta_key in relevant table in searlized form.
+Run delete query of old repeater fields data one by one.
+Rename new meta_key to old one.

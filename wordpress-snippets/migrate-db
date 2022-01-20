@@ -1,0 +1,7 @@
+UPDATE wp_options SET option_value = replace(option_value, 'https://www.emarine.ae/emarine_ae_new', 'http://localhost/e-marine') WHERE option_name = 'home' OR option_name = 'siteurl';
+
+UPDATE wp_posts SET guid = replace(guid, 'https://www.emarine.ae/emarine_ae_new','http://localhost/e-marine');
+
+UPDATE wp_posts SET post_content = replace(post_content, 'https://www.emarine.ae/emarine_ae_new', 'http://localhost/e-marine');
+
+UPDATE wp_postmeta SET meta_value = replace(meta_value,'https://www.emarine.ae/emarine_ae_new','http://localhost/e-marine');

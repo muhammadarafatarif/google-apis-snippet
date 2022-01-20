@@ -1,0 +1,72 @@
+<?php
+"
+DELETE FROM wp_comments WHERE comment_type = 'pingback';
+DELETE FROM wp_comments WHERE comment_type = 'trackback';
+DELETE FROM wp_commentmeta WHERE comment_id NOT IN (SELECT comment_id FROM wp_comments);
+DELETE FROM wp_postmeta WHERE meta_key = '_wp_old_slug';
+DELETE FROM wp_commentmeta WHERE meta_key LIKE '%akismet%';
+DELETE pm FROM wp_comments pm LEFT JOIN wp_posts wp ON wp.ID = pm.comment_post_ID WHERE wp.ID IS NULL;
+DELETE FROM wp_options WHERE option_name LIKE ('%\_transient\_%');
+DELETE FROM wp_postmeta WHERE meta_key IN ('_edit_last', '_edit_lock');
+DELETE pm FROM wp_inquiries pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;
+DELETE pm FROM wp_jobs_applications pm LEFT JOIN wp_posts wp ON wp.ID = pm.job_id WHERE wp.ID IS NULL;
+DELETE pm FROM wp_postmeta pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;
+DELETE pm FROM `wp_postmeta_abroad-study` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'abroad-study';
+DELETE pm FROM `wp_postmeta_advertisement` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'advertisement';
+DELETE pm FROM `wp_postmeta_art-gallery` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'art-gallery';
+DELETE pm FROM `wp_postmeta_blogs` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'blogs';
+DELETE pm FROM `wp_postmeta_course` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'course';
+DELETE pm FROM `wp_postmeta_education-supplier` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'education-supplier';
+DELETE pm FROM `wp_postmeta_educator` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'educator';
+DELETE pm FROM `wp_postmeta_employer` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'employer';
+DELETE pm FROM `wp_postmeta_event` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'event';
+DELETE pm FROM `wp_postmeta_fees_links` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'fees_links';
+DELETE pm FROM `wp_postmeta_government-agencies` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'government-agencies';
+DELETE pm FROM `wp_postmeta_job` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'job';
+DELETE pm FROM `wp_postmeta_language-institute` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'language-institute';
+DELETE pm FROM `wp_postmeta_news-posts` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'news-posts';
+DELETE pm FROM `wp_postmeta_nursery` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'nursery';
+DELETE pm FROM `wp_postmeta_online-universities` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'online-universities';
+DELETE pm FROM `wp_postmeta_owl-carousel` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'owl-carousel';
+DELETE pm FROM `wp_postmeta_page` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'page';
+DELETE pm FROM `wp_postmeta_performing-art` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'performing-art';
+DELETE pm FROM `wp_postmeta_tutor` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'tutor';
+DELETE pm FROM `wp_postmeta_recruite-agency` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'recruite-agency';
+DELETE pm FROM `wp_postmeta_scholarship` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'scholarship';
+DELETE pm FROM `wp_postmeta_school` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'school';
+DELETE pm FROM `wp_postmeta_school-activity` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'school-activity';
+DELETE pm FROM `wp_postmeta_special_needs` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'special_needs';
+DELETE pm FROM `wp_postmeta_sports-fitness-club` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'sports-fitness-club';
+DELETE pm FROM `wp_postmeta_training-tutoring` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'training-tutoring';
+DELETE pm FROM `wp_postmeta_university` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'university';
+DELETE pm FROM `wp_postmeta_updates` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'updates';
+DELETE pm FROM `wp_postmeta_video` pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL OR wp.post_type != 'video';
+DELETE pm FROM wp_yasr_multi_values pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;
+DELETE pm FROM wp_yasr_log pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;
+DELETE FROM wp_term_relationships WHERE object_id NOT IN (SELECT ID FROM wp_posts);
+DELETE FROM wp_posts WHERE post_type = 'revision';
+DELETE FROM wp_term_taxonomy WHERE term_id not IN (SELECT term_id FROM wp_terms);
+DELETE FROM wp_term_relationships WHERE term_taxonomy_id not IN (SELECT term_taxonomy_id FROM wp_term_taxonomy);
+
+DELETE FROM `wp_users_front` WHERE `user_status` = 0 AND `user_registered` NOT LIKE "%2021-09-%" AND `user_registered` NOT LIKE "%2021-08-%"
+DELETE u FROM `wp_users_front_data` u LEFT JOIN wp_users_front d ON d.ID = u.user_id WHERE d.ID IS NULL
+DELETE u FROM `wp_inquiries` u LEFT JOIN wp_posts d ON d.ID = u.post_id WHERE d.ID IS NULL
+
+-------------------------------------------------------------------------------------------------------------
+
+DELETE pm FROM wp_comments pm LEFT JOIN wp_posts wp ON wp.ID = pm.comment_post_ID WHERE wp.ID IS NULL;
+DELETE FROM wp_commentmeta WHERE comment_id NOT IN (SELECT comment_id FROM wp_comments);
+DELETE FROM wp_postmeta WHERE meta_key = '_wp_old_slug';
+DELETE FROM wp_commentmeta WHERE meta_key LIKE '%akismet%';
+DELETE FROM wp_postmeta WHERE meta_key = '_edit_lock';
+DELETE FROM wp_postmeta WHERE meta_key = '_edit_last';
+DELETE pm FROM wp_postmeta pm LEFT JOIN wp_posts wp ON wp.ID = pm.post_id WHERE wp.ID IS NULL;
+DELETE FROM wp_term_relationships WHERE object_id NOT IN (SELECT ID FROM wp_posts);
+UPDATE wp_term_taxonomy tt SET count = (SELECT count(p.ID) FROM wp_term_relationships tr LEFT JOIN wp_posts p ON p.ID = tr.object_id WHERE tr.term_taxonomy_id = tt.term_taxonomy_id);
+DELETE a,b,c FROM wp_posts a LEFT JOIN wp_term_relationships b ON ( a.ID = b.object_id) LEFT JOIN wp_postmeta c ON ( a.ID = c.post_id ) LEFT JOIN wp_term_taxonomy d ON ( b.term_taxonomy_id = d.term_taxonomy_id) WHERE a.post_type = 'revision'  AND d.taxonomy != 'link_category';
+DELETE FROM wp_posts WHERE post_type = 'revision';
+DELETE FROM wp_term_taxonomy WHERE term_id not IN (SELECT term_id FROM wp_terms);
+DELETE FROM wp_term_relationships WHERE term_taxonomy_id not IN (SELECT term_taxonomy_id FROM wp_term_taxonomy);
+DELETE FROM wp_comments WHERE comment_type = 'pingback';
+DELETE FROM wp_comments WHERE comment_type = 'trackback';
+DELETE FROM wp_options WHERE option_name LIKE ('%\_transient\_%');

@@ -1,0 +1,85 @@
+- Title relevant link creation with exception of helping verbs
+- Need to fix head person dropdown default value submission.
+- Timing Field Need To upgrade to advance option just like front-end
+- Editor Link Not allow when copying data, however allowed when manually typing
+- Need to add admission content & fees content to school form with not required
+- Grade wise fees commas numeric notation on single school and nursery
+- Course language need to add dropdown just like frontend and also make it multiselection
+- Change Course website label to "course link"
+- Course About Instructor Field default value -> listing first paragraph.
+- Job Types Custom Need to shuffle with job category taxonomy 
+
+
+Required:
+---------
+Country / City
+Address
+Website (Without Protocol)
+Phone
+Email ( With No email chekcbox option )
+Map Latitude, Map Longitude ( Also add to frontend form )
+
+COURSE:
+
+Country
+City
+Course Level 
+Offered at 
+Select Listing Type 
+Company Listing 
+
+EVENTS:
+
+Event Type 
+Address 1 
+Country
+City
+Date and time section
+
+
+JOB
+Job Types
+Company Listing 
+Employment Type 
+Country
+City
+
+
+
+
+
+
+Formatting Validation:
+---------------------
+foundation year
+Number of Staff
+Number of Students
+Special Offer Text (Text Limit) | Also Need to add to frontend form
+minimu & maximum fees can't be same
+Contact Person Name 1 blabla
+Video formatting
+Gallery formatting
+
+
+COURSE:
+
+Timing Formatting
+Course Brochure link format ( Also add to frontend)
+Special Offer Text (Text Limit) | Also Need to add to frontend form
+Source Image 
+
+
+
+
+
+Agenda for next week
+---------------------
+
+* Old Phone Number Data need to fix
+* Email Field Repeater
+* Grade wise (Yearly) fees option for school and nrsery add to frontend form with numeric formatting
+* Remove hide job form functionality
+* Remove Email From & Done By and move assing to to membership section
+* If country/ city selection from custom fields dropdown then auto select taxonomy sidebar
+* Courses Select Address Option need to discuss
+* Courses Categories Custom Field need to parent child base just like frontend
